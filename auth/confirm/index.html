@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Fibi</title>
+  <style>
+    /* Earth-tone palette consistent with the app — uses literal hex for
+       portability (this is a static page, not a React Native bundle, so
+       constants/colors.ts isn't reachable). Keep in sync if the design
+       tokens shift. */
+
+    /* Force `hidden` attribute to actually hide. Without this, the explicit
+       `display: inline-block` on a.button below wins over `[hidden]`'s
+       default `display: none`, and the no-token-hash fallback path renders
+       a dead button alongside the error message. */
+    [hidden] { display: none !important; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: #F8F4EC;
+      color: #2A3A2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 360px;
+      text-align: center;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+    p {
+      color: #5C6B5F;
+      margin: 0 0 32px;
+      line-height: 1.4;
+    }
+    a.button {
+      display: inline-block;
+      background: #D97757;
+      color: #FFF7E6;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 22px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    a.button:active {
+      opacity: 0.85;
+    }
+    .fallback {
+      font-size: 13px;
+      color: #5C6B5F;
+      margin: 24px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>open Fibi</h1>
+    <p id="instructions">tap below to finish signing in</p>
+    <a id="open" class="button" href="#">open Fibi</a>
+    <p id="install-hint" class="fallback">if Fibi doesn't open, make sure it's installed on this device</p>
+    <p id="invalid" class="fallback" hidden>this sign-in link is missing information — request a new one from Fibi.</p>
+  </main>
+  <script>
+    // Read token_hash + type from query string, build the deep link.
+    //
+    // Must NOT auto-redirect on load — auto-redirect would let scanners that
+    // execute JavaScript (Microsoft Safe Links etc) trigger the verifyOtp
+    // call on the user's behalf, which defeats the entire reason this
+    // interstitial exists. The required-user-click is the prefetch defence.
+    var params = new URLSearchParams(window.location.search);
+    var tokenHash = params.get('token_hash');
+    var type = params.get('type') || 'email';
+    var button = document.getElementById('open');
+    if (tokenHash) {
+      // Use the 3-slash form `fibi:///auth/callback` — that's what
+      // Linking.createURL('/auth/callback') produces and what's been
+      // confirmed working on iOS via the previous magic-link flow.
+      // lib/deepLink.ts also accepts the 2-slash form as belt-and-braces.
+      button.href = 'fibi:///auth/callback?token_hash=' +
+        encodeURIComponent(tokenHash) + '&type=' + encodeURIComponent(type);
+    } else {
+      // No token_hash — likely a stripped link, manual nav, or template
+      // bug. Hide everything that assumes a working flow (button +
+      // pre-tap instructions + post-tap install hint) and show the
+      // "request a new one" fallback alone.
+      button.hidden = true;
+      document.getElementById('instructions').hidden = true;
+      document.getElementById('install-hint').hidden = true;
+      document.getElementById('invalid').hidden = false;
+    }
+  </script>
+</body>
+</html>
