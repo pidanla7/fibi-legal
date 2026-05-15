@@ -4,7 +4,7 @@
 
 Fibi is a fiber-tracking app built around a character named Herb. We try to collect as little data as possible, store it carefully, and give you straightforward control over what happens to it. This policy explains what we collect, why, and what your rights are.
 
-If anything below is unclear, email **support@fibi.app**.
+If anything below is unclear, email **meetfibi@gmail.com**.
 
 ---
 
@@ -86,7 +86,7 @@ Search queries you type into Quick log are sent to **USDA FoodData Central** (a 
 
 - **Active accounts:** data persists for as long as your account exists.
 - **Account deletion (signed-in accounts):** you can delete your account from Settings. Deletion cascades through all your data — logs, favourites, custom foods, streaks, evolution state — and the data is purged from our servers within 24 hours.
-- **Data export:** request a JSON export of all your data by emailing **support@fibi.app**. The export is sent within 24 hours. (A self-serve "export my data" button in Settings is planned for v1.0 launch — once it ships, the request will be a single tap with the same 24-hour delivery SLA.)
+- **Data export:** request a JSON export of all your data by emailing **meetfibi@gmail.com**. The export is sent within 24 hours. (A self-serve "export my data" button in Settings is planned for v1.0 launch — once it ships, the request will be a single tap with the same 24-hour delivery SLA.)
 - **Anonymous accounts (no email, no Apple Sign In):** anonymous sessions have no real-identity tie. If you delete the app, your on-device session token is removed and you lose access to that anonymous account permanently. The corresponding data row on our servers becomes orphaned — we have no way to associate it with you (or any future user) and it cannot be retrieved or re-attached. To explicitly request deletion of an orphaned anonymous account, you would need to retain enough information to identify it (your anonymous user ID is visible in Settings); without that, the orphaned data remains.
 
 ## Apple Health specifics
@@ -101,7 +101,7 @@ Fibi's relationship with Apple Health is bidirectional and entirely under your c
 
 ## Children
 
-Fibi is not directed at children under 13, and we do not knowingly collect data from children under 13. If you are a parent and believe your child has used Fibi to create an account, email **support@fibi.app** and we will delete the account and associated data.
+Fibi is not directed at children under 13, and we do not knowingly collect data from children under 13. If you are a parent and believe your child has used Fibi to create an account, email **meetfibi@gmail.com** and we will delete the account and associated data.
 
 In the EU and UK, the equivalent age threshold is 16 under GDPR-K. The same protection applies: we do not knowingly collect data from anyone under that age.
 
@@ -109,14 +109,14 @@ In the EU and UK, the equivalent age threshold is 16 under GDPR-K. The same prot
 
 Depending on where you live, you have legal rights over the data Fibi holds about you:
 
-- **Access:** request a copy of your data by emailing **support@fibi.app** (or, once it ships, via Settings → "export my data").
+- **Access:** request a copy of your data by emailing **meetfibi@gmail.com** (or, once it ships, via Settings → "export my data").
 - **Correction:** request correction of inaccurate data (most onboarding answers and logs are editable directly in the app).
 - **Deletion:** delete your account from Settings, or email us to request deletion.
 - **Portability:** data export delivers your data in JSON format, sent within 24 hours of request.
 - **Withdrawal of consent:** revoke Apple Health permissions in iOS Settings; sign out or delete your account in Fibi.
 - **Complaint:** if you believe Fibi has mishandled your data, you can complain to your local data protection authority. In the EU this is your national DPA; in the UK it is the ICO.
 
-To exercise any of these rights, email **support@fibi.app** or use the in-app controls in Settings.
+To exercise any of these rights, email **meetfibi@gmail.com** or use the in-app controls in Settings.
 
 ## International data transfer
 
@@ -130,7 +130,7 @@ If we change this policy, we will update the "Last updated" date at the top. For
 
 Questions, requests, or concerns:
 
-- Email: **support@fibi.app**
+- Email: **meetfibi@gmail.com**
 - Postal mail: *(to be added)*
 
 This document is hosted in the open at *(GitHub Pages or equivalent URL — to be set during App Store Connect submission)*.
